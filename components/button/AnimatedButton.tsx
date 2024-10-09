@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Text, Animated, Pressable, StyleSheet } from "react-native";
 import { Colors } from "@/constants/Colors";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 interface AnimatedButtonProps {
   onPress: () => void;
@@ -15,8 +16,8 @@ export default function AnimatedButton({
   ...rest
 }: AnimatedButtonProps) {
   const scaleAnim = useRef(new Animated.Value(1)).current;
-
-  const backgroundColor = Colors.brand.primary;
+  const backgroundColorDisable = useThemeColor({}, "disable");
+  const backgroundColor = disabled ? backgroundColorDisable : Colors.brand.primary;
 
   const handlePressIn = () => {
     Animated.spring(scaleAnim, {

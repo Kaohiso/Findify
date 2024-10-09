@@ -157,9 +157,10 @@ const styles = StyleSheet.create({
   },
   rightIcon: {
     position: "absolute",
-    right: 10,
-    top: "50%",
-    transform: [{ translateY: -12 }], // Assuming the icon size is 24, half of that is 12
+    right: "1%",
+    top: 0,
+    bottom: 0,
+    justifyContent: "center",
     zIndex: 1,
   },
 });

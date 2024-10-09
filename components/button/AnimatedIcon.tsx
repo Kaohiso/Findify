@@ -35,10 +35,11 @@ export default function AnimatedIcon({
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       onPress={onPress}
+      style={{ padding: 10 }}
       {...rest}
     >
       <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
-        <Ionicons name={name} size={25} />
+        <Ionicons name={name} size={24} />
       </Animated.View>
     </Pressable>
   );

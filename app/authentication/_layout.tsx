@@ -1,15 +1,15 @@
 import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, useColorScheme } from "react-native";
 import { useRouter } from "expo-router";
 import { SignUpProvider, useSignUpContext } from "@/context/signupContext";
 
 function LayoutContent() {
   const { handlePrevious, step } = useSignUpContext();
   const router = useRouter();
+  const colorScheme = useColorScheme();
 
   const handleAction = () => {
-    console.log(step)
     if (step > 0) handlePrevious();
     else router.back();
   };
@@ -25,7 +25,11 @@ function LayoutContent() {
         headerTitle: "",
         headerLeft: () => (
           <TouchableOpacity onPress={handleAction}>
-            <Ionicons name="chevron-back" size={24} color="black" />
+            <Ionicons
+              name="chevron-back"
+              size={24}
+              color={colorScheme === "dark" ? "white" : "black"}
+            />
           </TouchableOpacity>
         ),
       }}

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import * as Yup from "yup";
 import {
   ThemedText,
   ThemedTextInput,
@@ -10,6 +9,7 @@ import {
 import { View, KeyboardAvoidingView, ScrollView, Platform } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
 import Privacy from "./privacy";
+import { isValidEmail } from "@/utils/validation";
 
 interface FirstPageFormProps {}
 
@@ -19,16 +19,10 @@ const SignIn: React.FC<FirstPageFormProps> = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Email isn't valid")
-      .required("Email is required"),
-  });
 
   const handlePressContinue = async () => {
     setLoading(true);
-    try {
-      await validationSchema.validate({ email }, { abortEarly: false });
+    if (isValidEmail(email)) {
       setError(false);
       router.push({
         pathname: "/authentication",
@@ -36,14 +30,11 @@ const SignIn: React.FC<FirstPageFormProps> = () => {
           email: email,
         },
       });
-    } catch (error) {
-      if (error instanceof Yup.ValidationError) {
-        console.log(error.message);
-        setError(true);
-      }
-    } finally {
-      setLoading(false);
+    } else {
+      console.log("Email invalid");
+      setError(true);
     }
+    setLoading(false);
   };
 
   const handleChangeText = (value: string) => {

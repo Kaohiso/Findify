@@ -17,6 +17,9 @@ export const Colors = {
     border: "#E1E3E5",
     placeholderText: "#9BA1A6",
     inputBackground: "#F7F8F9",
+    error: "#ff0000",
+    success: "#006400",
+    disable: "#d3d3d3",
   },
   dark: {
     text: "#ECEDEE",
@@ -28,6 +31,9 @@ export const Colors = {
     border: "#2E3235",
     placeholderText: "#687076",
     inputBackground: "#1C1E1F",
+    error: "rgba(255, 0, 0, 1)",
+    success: "rgba(0, 255, 0, 0.8)",
+    disable: "#333333",
   },
   brand: {
     primary: "#5201FE",
