@@ -28,7 +28,7 @@ const Email: React.FC<EmailProps> = ({
 
   return (
     <View style={styles.container}>
-      <ThemedText type="subtitle">What's your email adress</ThemedText>
+      <ThemedText type="subtitle">What's your email adress?</ThemedText>
       <ThemedTextInput
         value={email}
         onChangeText={handleEmail}

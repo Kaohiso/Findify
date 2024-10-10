@@ -10,7 +10,7 @@ import Email from "./EmailForm";
 import Password from "./PasswordForm";
 import { useSignUpContext } from "@/context/signupContext";
 import { useLocalSearchParams } from "expo-router";
-import * as valid from "@/utils/validation";
+import CategorieForm from "./CategorieForm";
 
 interface FirstPageFormProps {}
 interface DataProps {
@@ -49,6 +49,7 @@ const SignUp: React.FC<FirstPageFormProps> = () => {
       }
       onValidationChange={setIsFormValid}
     />,
+    <CategorieForm />,
   ];
 
   return (
@@ -56,8 +57,8 @@ const SignUp: React.FC<FirstPageFormProps> = () => {
       edges={["bottom"]}
       style={{ flex: 1, justifyContent: "space-between" }}
     >
-      <View>
-        <ProgressBar step={step} steps={6} />
+      <ProgressBar step={step} steps={Form.length} />
+      <View style={{ flex: 1 }}>
         {Form[step]}
         {showError && (
           <ThemedText style={{ color: "red" }}>

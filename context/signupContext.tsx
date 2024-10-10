@@ -14,7 +14,7 @@ interface SignUpProviderProps {
 const SignUpContext = createContext<SignUpContextType | undefined>(undefined);
 
 export const SignUpProvider: React.FC<SignUpProviderProps> = ({ children }) => {
-  const [step, setStep] = useState<number>(1);
+  const [step, setStep] = useState<number>(2); // TODO CHANGE
 
   const handlePrevious = () => {
     setStep((prevStep) => Math.max(0, prevStep - 1));

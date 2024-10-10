@@ -1,7 +1,12 @@
-import React, { useRef } from "react";
-import { Text, Animated, Pressable, StyleSheet } from "react-native";
+import React from "react";
+import { Text, Pressable, StyleSheet } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+} from "react-native-reanimated";
 
 interface AnimatedButtonProps {
   onPress: () => void;
@@ -15,22 +20,24 @@ export default function AnimatedButton({
   disabled,
   ...rest
 }: AnimatedButtonProps) {
-  const scaleAnim = useRef(new Animated.Value(1)).current;
+  const scale = useSharedValue(1);
   const backgroundColorDisable = useThemeColor({}, "disable");
-  const backgroundColor = disabled ? backgroundColorDisable : Colors.brand.primary;
+  const backgroundColor = disabled
+    ? backgroundColorDisable
+    : Colors.brand.primary;
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: scale.value }],
+    };
+  });
 
   const handlePressIn = () => {
-    Animated.spring(scaleAnim, {
-      toValue: 0.95,
-      useNativeDriver: true,
-    }).start();
+    scale.value = withSpring(0.95);
   };
 
   const handlePressOut = () => {
-    Animated.spring(scaleAnim, {
-      toValue: 1,
-      useNativeDriver: true,
-    }).start();
+    scale.value = withSpring(1);
   };
 
   return (
@@ -42,10 +49,7 @@ export default function AnimatedButton({
       {...rest}
     >
       <Animated.View
-        style={[
-          styles.button,
-          { backgroundColor, transform: [{ scale: scaleAnim }] },
-        ]}
+        style={[styles.button, { backgroundColor }, animatedStyle]}
       >
         <Text style={[styles.text, { color: "white" }]}>{title}</Text>
       </Animated.View>

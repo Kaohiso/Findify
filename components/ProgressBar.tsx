@@ -22,7 +22,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   step,
   steps,
 }) => {
-  const progress = Math.min(Math.max(step / steps, 0), 1);
+  const progress = (step + 1) / steps;
   const width = useSharedValue(0);
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },

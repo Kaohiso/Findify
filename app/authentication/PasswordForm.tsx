@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { View } from "react-native";
-import { ThemedTextInput } from "@/components";
+import { ThemedText, ThemedTextInput } from "@/components";
 import PasswordRequirements from "./PasswordRequirements";
 
 interface PasswordProps {
@@ -9,21 +9,22 @@ interface PasswordProps {
   onValidationChange: Dispatch<SetStateAction<boolean>>;
 }
 
-const Password: React.FC<PasswordProps> = ({ 
-  password, 
+const Password: React.FC<PasswordProps> = ({
+  password,
   handlePassword,
-  onValidationChange
+  onValidationChange,
 }) => {
   return (
     <View>
+      <ThemedText type="subtitle">What's your password?</ThemedText>
       <ThemedTextInput
         value={password}
         onChangeText={handlePassword}
         placeholder="Password"
         secureTextEntry
       />
-      <PasswordRequirements 
-        password={password} 
+      <PasswordRequirements
+        password={password}
         onValidationChange={onValidationChange}
       />
     </View>
