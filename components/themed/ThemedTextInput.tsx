@@ -1,15 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import {
-  TextInput,
-  StyleSheet,
-  TextInputProps,
-  Animated,
-  View,
-} from "react-native";
+import React, { useRef, useEffect, useState, memo } from "react";
+import { TextInput, TextInputProps, Animated, View } from "react-native";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import AnimatedIcon from "../button/AnimatedIcon";
+import { styles } from "./styles";
 
-const DURATION = 70;
+const DURATION = 50;
 const TO_VALUE = 5;
 
 export type ThemedTextInputProps = TextInputProps & {
@@ -27,7 +22,7 @@ export type ThemedTextInputProps = TextInputProps & {
   leftIcon?: React.ReactNode;
 };
 
-export default function ThemedTextInput({
+const ThemedTextInput: React.FC<ThemedTextInputProps> = ({
   style,
   lightColor,
   darkColor,
@@ -43,7 +38,7 @@ export default function ThemedTextInput({
   isPassword = false,
   leftIcon,
   ...rest
-}: ThemedTextInputProps) {
+}) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
   const backgroundColor = useThemeColor(
     { light: lightBackgroundColor, dark: darkBackgroundColor },
@@ -68,11 +63,6 @@ export default function ThemedTextInput({
   useEffect(() => {
     if (error) {
       Animated.sequence([
-        Animated.timing(shakeAnimation, {
-          toValue: TO_VALUE,
-          duration: DURATION,
-          useNativeDriver: true,
-        }),
         Animated.timing(shakeAnimation, {
           toValue: -TO_VALUE,
           duration: DURATION,
@@ -124,43 +114,6 @@ export default function ThemedTextInput({
       )}
     </Animated.View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  input: {
-    padding: 10,
-    borderWidth: 2,
-    borderRadius: 5,
-  },
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: "600",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    lineHeight: 32,
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: "#0a7ea4",
-  },
-  rightIcon: {
-    position: "absolute",
-    right: "1%",
-    top: 0,
-    bottom: 0,
-    justifyContent: "center",
-    zIndex: 1,
-  },
-});
+export default memo(ThemedTextInput);

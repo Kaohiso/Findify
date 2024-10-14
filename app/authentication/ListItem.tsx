@@ -1,34 +1,31 @@
-// ListItem.tsx
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  Pressable,
-  ImageBackground,
-  LayoutChangeEvent,
-} from "react-native";
+import React, { memo } from "react";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
 } from "react-native-reanimated";
+import { StyleSheet, Pressable, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { ThemedText } from "@/components";
 import AnimatedHeart from "./AnimatedHeart";
+import { useLikedCategories } from "@/context/likedCategoriesContext";
 
 interface CategoryProps {
   id: number;
   name: string;
 }
 
-const ListItem = ({ item }: { item: CategoryProps }) => {
-  const [showHeart, setShowHeart] = React.useState(false);
-  const [itemWidth, setItemWidth] = useState(0);
+interface ListItemProps {
+  item: CategoryProps;
+}
+
+const ListItem: React.FC<ListItemProps> = ({ item }) => {
+  const { liked, toggleLike, isLiked } = useLikedCategories();
+
   const height = React.useMemo(
     () => Math.floor(Math.random() * (230 - 170 + 1) + 170),
     []
   );
-  const id = item.id + 10;
-  const source = `https://picsum.photos/id/${id.toString()}/200/300`;
 
   const scale = useSharedValue(1);
 
@@ -44,24 +41,15 @@ const ListItem = ({ item }: { item: CategoryProps }) => {
     scale.value = withSpring(1, { damping: 10 });
   };
 
-  const handlePress = () => {
-    setShowHeart(!showHeart);
-  };
-
-  const onLayout = (event: LayoutChangeEvent) => {
-    const { width } = event.nativeEvent.layout;
-    setItemWidth(width);
-  };
-
   return (
     <Pressable
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      onPress={handlePress}
+      onPress={() => toggleLike(item.id)}
     >
       <Animated.View style={[styles.item, { height }, animatedStyle]}>
         <ImageBackground
-          source={{ uri: source }}
+          source={{ uri: `https://picsum.photos/id/${item.id + 10}/200/300` }}
           resizeMode="cover"
           style={styles.image}
         >
@@ -79,7 +67,7 @@ const ListItem = ({ item }: { item: CategoryProps }) => {
             </ThemedText>
           </LinearGradient>
         </ImageBackground>
-        <AnimatedHeart show={showHeart} />
+        <AnimatedHeart show={isLiked(item.id)} />
       </Animated.View>
     </Pressable>
   );
@@ -100,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItem;
+export default memo(ListItem);

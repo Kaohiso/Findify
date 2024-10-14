@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import {
   ProgressBar,
@@ -20,21 +20,13 @@ interface DataProps {
 
 const SignUp: React.FC<FirstPageFormProps> = () => {
   const { email: initialEmail } = useLocalSearchParams<{ email: string }>();
-  const { step, handleNext } = useSignUpContext();
   const [data, setData] = useState<DataProps>({
     email: initialEmail,
     password: undefined,
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const [showError, setShowError] = useState(false);
-
-  const handleContinue = () => {
-    if (step === 0 && !isFormValid) {
-      setShowError(true);
-    } else {
-      handleNext();
-    }
-  };
+  const { step, handleNext, setSteps } = useSignUpContext();
 
   const Form = [
     <Email
@@ -49,8 +41,20 @@ const SignUp: React.FC<FirstPageFormProps> = () => {
       }
       onValidationChange={setIsFormValid}
     />,
-    <CategorieForm />,
+    <CategorieForm onValidationChange={setIsFormValid} />,
   ];
+
+  const handleContinue = () => {
+    if (step === 0 && !isFormValid) {
+      setShowError(true);
+    } else {
+      handleNext();
+    }
+  };
+
+  useEffect(() => {
+    setSteps(Form.length - 1);
+  }, []);
 
   return (
     <ThemedSafeAreaView
