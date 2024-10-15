@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Bluetooth Headphones",
+    "price": "59.99",
+    "category": "Electronics",
+    "description": "High-quality wireless headphones with noise cancellation and long battery life.",
+    "image": "https://example.com/product1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Smartwatch with Fitness Tracker",
+    "price": "129.99",
+    "category": "Electronics",
+    "description": "A smartwatch with heart rate monitor, step counter, and sleep tracking features.",
+    "image": "https://example.com/product2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Portable Power Bank 20000mAh",
+    "price": "34.99",
+    "category": "Electronics",
+    "description": "Compact and lightweight power bank with fast charging capabilities.",
+    "image": "https://example.com/product3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Leather Office Chair",
+    "price": "299.99",
+    "category": "Furniture",
+    "description": "Ergonomic office chair with adjustable height and lumbar support.",
+    "image": "https://example.com/product4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "4K Ultra HD Smart TV",
+    "price": "599.99",
+    "category": "Electronics",
+    "description": "55-inch 4K Ultra HD smart TV with built-in streaming apps.",
+    "image": "https://example.com/product5.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Stainless Steel Cookware Set",
+    "price": "89.99",
+    "category": "Home & Kitchen",
+    "description": "10-piece stainless steel cookware set for versatile cooking.",
+    "image": "https://example.com/product6.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Gaming Laptop",
+    "price": "1199.99",
+    "category": "Computers",
+    "description": "High-performance gaming laptop with RTX graphics and 16GB RAM.",
+    "image": "https://example.com/product7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Noise-Cancelling Earbuds",
+    "price": "79.99",
+    "category": "Electronics",
+    "description": "Compact wireless earbuds with active noise cancellation.",
+    "image": "https://example.com/product8.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Wooden Coffee Table",
+    "price": "149.99",
+    "category": "Furniture",
+    "description": "Stylish wooden coffee table with storage shelf.",
+    "image": "https://example.com/product9.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Smart Home Security Camera",
+    "price": "99.99",
+    "category": "Electronics",
+    "description": "Indoor/outdoor security camera with motion detection and night vision.",
+    "image": "https://example.com/product10.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Electric Standing Desk",
+    "price": "499.99",
+    "category": "Furniture",
+    "description": "Adjustable height electric standing desk for home office.",
+    "image": "https://example.com/product11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Cordless Vacuum Cleaner",
+    "price": "149.99",
+    "category": "Home Appliances",
+    "description": "Lightweight and powerful cordless vacuum for all floor types.",
+    "image": "https://example.com/product12.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Smart Thermostat",
+    "price": "199.99",
+    "category": "Home & Kitchen",
+    "description": "Energy-efficient smart thermostat compatible with Alexa.",
+    "image": "https://example.com/product13.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Electric Toothbrush",
+    "price": "59.99",
+    "category": "Health & Personal Care",
+    "description": "Rechargeable electric toothbrush with multiple brushing modes.",
+    "image": "https://example.com/product14.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Instant Pot Pressure Cooker",
+    "price": "99.99",
+    "category": "Home & Kitchen",
+    "description": "7-in-1 multi-use programmable pressure cooker.",
+    "image": "https://example.com/product15.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Fitness Resistance Bands",
+    "price": "24.99",
+    "category": "Sports & Outdoors",
+    "description": "Set of 5 resistance bands for strength training and stretching.",
+    "image": "https://example.com/product16.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Portable Bluetooth Speaker",
+    "price": "49.99",
+    "category": "Electronics",
+    "description": "Waterproof Bluetooth speaker with deep bass and 12-hour battery life.",
+    "image": "https://example.com/product17.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Foam Mattress Topper",
+    "price": "129.99",
+    "category": "Home & Kitchen",
+    "description": "Memory foam mattress topper for added comfort and support.",
+    "image": "https://example.com/product18.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Wireless Charger Stand",
+    "price": "39.99",
+    "category": "Electronics",
+    "description": "Fast wireless charging stand for smartphones and earbuds.",
+    "image": "https://example.com/product19.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Air Purifier with HEPA Filter",
+    "price": "149.99",
+    "category": "Home Appliances",
+    "description": "Air purifier with true HEPA filter for large rooms.",
+    "image": "https://example.com/product20.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Electric Kettle",
+    "price": "49.99",
+    "category": "Home & Kitchen",
+    "description": "Stainless steel electric kettle with temperature control.",
+    "image": "https://example.com/product21.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Yoga Mat",
+    "price": "29.99",
+    "category": "Sports & Outdoors",
+    "description": "Non-slip yoga mat with extra thickness for comfort.",
+    "image": "https://example.com/product22.jpg"
+  },
+  {
+    "id": 23,
+    "title": "LED Desk Lamp",
+    "price": "39.99",
+    "category": "Home & Office",
+    "description": "Dimmable LED desk lamp with USB charging port.",
+    "image": "https://example.com/product23.jpg"
+  },
+  {
+    "id": 24,
+    "title": "Electric Shaver",
+    "price": "89.99",
+    "category": "Health & Personal Care",
+    "description": "Rechargeable electric shaver with precision blades for a close shave.",
+    "image": "https://example.com/product24.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Blender with Glass Jar",
+    "price": "69.99",
+    "category": "Home & Kitchen",
+    "description": "High-speed blender with 5 speed settings and durable glass jar.",
+    "image": "https://example.com/product25.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Camping Tent for 4 People",
+    "price": "199.99",
+    "category": "Sports & Outdoors",
+    "description": "Waterproof camping tent with easy setup and spacious design.",
+    "image": "https://example.com/product26.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Wireless Gaming Mouse",
+    "price": "49.99",
+    "category": "Computers",
+    "description": "Ergonomic wireless gaming mouse with RGB lighting and adjustable DPI.",
+    "image": "https://example.com/product27.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Digital SLR Camera",
+    "price": "799.99",
+    "category": "Photography",
+    "description": "Professional DSLR camera with 24MP resolution and full HD video recording.",
+    "image": "https://example.com/product28.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Stainless Steel Water Bottle",
+    "price": "19.99",
+    "category": "Sports & Outdoors",
+    "description": "Insulated stainless steel water bottle with leak-proof lid.",
+    "image": "https://example.com/product29.jpg"
+  },
+  {
+    "id": 30,
+    "title": "Kitchen Knife Set",
+    "price": "79.99",
+    "category": "Home & Kitchen",
+    "description": "12-piece stainless steel kitchen knife set with wooden block.",
+    "image": "https://example.com/product30.jpg"
+  }
+]

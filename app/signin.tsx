@@ -7,7 +7,7 @@ import {
   ThemedSafeAreaView,
 } from "@/components";
 import { View, KeyboardAvoidingView, ScrollView, Platform } from "react-native";
-import { useNavigation, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import Privacy from "./privacy";
 import { isValidEmail } from "@/utils/validation";
 
@@ -25,7 +25,7 @@ const SignIn: React.FC<FirstPageFormProps> = () => {
     if (isValidEmail(email)) {
       setError(false);
       router.push({
-        pathname: "/authentication",
+        pathname: "/home",
         params: {
           email: email,
         },

@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import React, { ReactNode, createContext, useContext, useState } from "react";
 
 interface SignUpContextType {
@@ -15,8 +16,9 @@ interface SignUpProviderProps {
 const SignUpContext = createContext<SignUpContextType | undefined>(undefined);
 
 export const SignUpProvider: React.FC<SignUpProviderProps> = ({ children }) => {
-  const [step, setStep] = useState<number>(1); // TODO CHANGE
-  const [steps, setSteps] = useState<number | undefined>(undefined); // TODO CHANGE
+  const router = useRouter();
+  const [step, setStep] = useState<number>(1);
+  const [steps, setSteps] = useState<number | undefined>(undefined);
 
   const handlePrevious = () => {
     setStep((prevStep) => Math.max(0, prevStep - 1));
@@ -24,8 +26,11 @@ export const SignUpProvider: React.FC<SignUpProviderProps> = ({ children }) => {
 
   const handleNext = () => {
     if (!steps) return;
-    if (step === steps) console.log("NON");
-    else setStep((prevStep) => Math.min(steps, prevStep + 1));
+    if (step === steps) {
+      router.push({
+        pathname: "/home",
+      });
+    } else setStep((prevStep) => Math.min(steps, prevStep + 1));
   };
 
   const value = { step, setStep, handlePrevious, handleNext, setSteps };
